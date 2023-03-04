@@ -1,11 +1,10 @@
 import { apiToken } from 'API/API';
-import { AppDispatch } from 'app/store';
-import type { navigateType, IWebSocket } from 'models/typescript';
-import { IPoint, IBoard, ITask } from 'models/dbTypes';
-import { handleError } from 'utils/handleErrors';
 import { pointSlice } from 'app/slices/pointSlice';
+import { AppDispatch } from 'app/store';
+import { IPoint } from 'models/dbTypes';
+import type { IWebSocket, navigateType } from 'models/typescript';
+import { handleError } from 'utils/handleErrors';
 import { fetchGetAllBoardStore } from './boardActionCreator';
-import { getBoardText } from 'utils/getBoardText';
 
 const setLoadingStatus = (dispatch: AppDispatch) => {
   dispatch(

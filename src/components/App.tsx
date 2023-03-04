@@ -1,26 +1,26 @@
-import React, { useEffect } from 'react';
-import { Main } from '../components/Main';
-import Footer from './Footer';
-import Header from './Header';
-import io from 'socket.io-client';
-import { RoutesPath } from 'constants/routes';
-import { BASE_URL } from 'constants/baseUrl';
-import { ToastContainer, Zoom, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useAppDispatch, useAppNavigate, useAppSelector } from 'app/hooks';
+import { loginReload } from 'app/actionCreators/authActionCreators';
 import {
   fetchGetAllBoardStore,
   fetchGetBoards,
   webSocketBoards,
 } from 'app/actionCreators/boardActionCreator';
 import { webSocketColumns } from 'app/actionCreators/columnActionCreator';
-import { webSocketTasks } from 'app/actionCreators/taskActionCreator';
 import { webSocketPoints } from 'app/actionCreators/pointActionCreator';
-import { ISocketResponse, IInfoNotify } from 'models/typescript';
-import { NotifyTipe } from 'constants/notifyType';
+import { webSocketTasks } from 'app/actionCreators/taskActionCreator';
+import { useAppDispatch, useAppNavigate, useAppSelector } from 'app/hooks';
+import { BASE_URL } from 'constants/baseUrl';
 import { LangKey } from 'constants/lang';
-import { loginReload } from 'app/actionCreators/authActionCreators';
+import { NotifyTipe } from 'constants/notifyType';
+import { RoutesPath } from 'constants/routes';
 import { StorageKey } from 'constants/storageKey';
+import { IInfoNotify, ISocketResponse } from 'models/typescript';
+import { useEffect } from 'react';
+import { toast, ToastContainer, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import io from 'socket.io-client';
+import { Main } from '../components/Main';
+import Footer from './Footer';
+import Header from './Header';
 const socket = io(BASE_URL);
 
 function App() {
